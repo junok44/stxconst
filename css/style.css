@@ -1,0 +1,787 @@
+@charset 'utf-8';
+@import url('notosanskr/NotoSansKR.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline-style: none;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: 'Noto Sans KR';
+    font-size: 15px;
+    color: #444;
+    letter-spacing: normal;
+    line-height: 1.2;
+    font-weight: 200;
+}
+/* 모달창 */
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    display: none;
+}
+
+.modal-cont {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 20px;
+    width: 400px;
+    height: 250px;
+    background-color: #fff;
+}
+
+.alert {
+    position: absolute;
+    left: 50%;
+    top: 2.8rem;
+    transform: translateX(-50%);
+    font-size: 3rem;
+}
+
+.modal-tit {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 600;
+    font-size: 1.7rem;
+    letter-spacing: -0.028rem;
+    line-height: 1.5;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.modal-txt {
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+    font-family: 'Noto Sans KR'sans-serif;
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: #666;
+    letter-spacing: -0.028rem;
+    line-height: 1.5;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.modal-close {
+    position: absolute;
+    left: 50%;
+    top: 80%;
+    width: 12rem;
+    height: 3rem;
+    background-color: #000;
+    transform: translate(-50%, -50%);
+    border: none;
+    font-family: 'Noto Sans KR'sans-serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: #fff;
+    letter-spacing: -0.028rem;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.modal-close:hover {
+    background-color: #8eb5f0;
+}
+
+/*공통클래스*/
+
+.clearfix::after {
+    content: '';
+    position: relative;
+    display: block;
+    width: 100%;
+    clear: both;
+}
+
+
+.pagew {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    width: 1200px;
+}
+
+/*상단*/
+.wrap {
+    position: relative;
+    display: block;
+}
+
+.header {
+    position: relative;
+    display: block;
+    z-index: 999;
+    padding-top: 26px;
+    padding-bottom: 24px;
+    height: 80px;
+
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.header>.pagew {}
+
+.logo {
+    position: absolute;
+    top: 0;
+    left: -304px;
+    display: block;
+    width: 150px;
+    height: 34px;
+    background: url('../images/logo.png') no-repeat center;
+    font-size: 0;
+    float: left;
+}
+
+.gnb {
+    position: relative;
+    display: block;
+    float: left;
+
+}
+
+.depth1 {
+    position: relative;
+    display: block;
+}
+
+.depth1>li {
+    position: relative;
+    display: block;
+    margin-left: 117px;
+    float: left;
+}
+
+.depth1>li:lastchild {
+    margin-right: 0;
+}
+
+.depth1>li>a {
+    font-size: 19px;
+    line-height: 35px;
+    font-weight: 500;
+    color: #000;
+}
+
+.lang {
+    position: absolute;
+    top: 10px;
+    right: -290px;
+    display: block;
+}
+
+.lang-list {
+    position: relative;
+    display: block;
+}
+
+.lang-list>li {
+    position: relative;
+    display: block;
+    float: left;
+}
+
+.lang-list>li>a {
+    position: relative;
+    display: block;
+    color: #888;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 0 11px;
+    line-height: 1;
+}
+
+.lang-list>li>a::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 0;
+    display: block;
+    width: 1px;
+    height: 11px;
+    background: #999;
+}
+
+.lang-list>li:first-child>a:before {
+    content: none;
+}
+
+.lang-list-focus {
+    color: #000 !important;
+}
+
+/*비주얼*/
+.visual {
+    position: relative;
+    display: block;
+    height: 910px;
+    background: url('../images/visual.png') no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.visual .pagew {
+    padding-top: 182px;
+    padding-bottom: 460px;
+}
+
+.visual-tit {
+    position: relative;
+    display: block;
+    color: #fff;
+    font-weight: 500;
+    font-size: 70px;
+    letter-spacing: 0;
+}
+
+.visual-tit:before {
+    content: '';
+    position: relative;
+    display: block;
+    width: 60px;
+    height: 5px;
+    background: #ed1c24;
+    margin-bottom: 41px;
+}
+
+.visual-txt {
+    position: relative;
+    display: block;
+    color: #fff;
+    font-weight: 200;
+    font-size: 21px;
+    letter-spacing: 0;
+    margin-top: 40px;
+    /*line-height: ;*/
+}
+
+.icon-move {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 40px;
+    display: block;
+    width: 33px;
+    height: 33px;
+    background: url('../images/bg_icon.png') no-repeat;
+    background-position: -122px 0px;
+}
+
+/*배너*/
+.banner {
+    position: relative;
+    display: block;
+    background: #f8f8f8;
+}
+
+.banner .pagew {
+    padding-top: 118px;
+}
+
+.banner-title {
+    position: relative;
+    display: block;
+    color: #111;
+    font-weight: 600;
+    font-size: 44px;
+    text-align: center;
+}
+
+.banner-title:after {
+    content: '';
+    position: relative;
+    display: block;
+    width: 37px;
+    height: 4px;
+    background: #ff0000;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 21px;
+}
+
+.banner-txt {
+    position: relative;
+    display: block;
+    font-weight: 200;
+    color: #444;
+    font-size: 16px;
+    text-align: center;
+    padding-top: 31px;
+
+}
+
+/*사업*/
+.work {
+    position: relative;
+    display: block;
+    background: #f8f8f8;
+    padding-top: 74px;
+    padding-bottom: 183px;
+}
+
+.work .pagew {}
+
+.main-work {
+    position: relative;
+    display: block;
+
+}
+
+.work-list {
+    position: relative;
+    display: block;
+    background: url('../images/work.png') no-repeat center;
+
+}
+
+.work-list>li {
+    position: relative;
+    display: block;
+    float: left;
+    width: 20%;
+    height: 420px;
+}
+
+.work-list>li>a {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 200;
+
+    transition: background 0.5s;
+
+    padding-top: 100px;
+}
+
+.work-list>li>a:hover {
+    background: #f48025;
+}
+
+.work-icon {
+    position: relative;
+    display: block;
+    left: 50%;
+    transform: translateX(-50%);
+    background: url('../images/bg_icon.png') no-repeat;
+    margin-top: 86px;
+
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.work-icon-1 {
+    width: 123px;
+    height: 112px;
+    background-position: -168px 0;
+}
+
+.work-icon-2 {
+    width: 120px;
+    height: 111px;
+    background-position: -301px -1px;
+}
+
+.work-icon-3 {
+    width: 128px;
+    height: 106px;
+    background-position: 0px -122px;
+}
+
+.work-icon-4 {
+    width: 130px;
+    height: 111px;
+    background-position: -140px -122px;
+}
+
+.work-icon-5 {
+    width: 102px;
+    height: 105px;
+    background-position: -280px -122px;
+}
+
+
+.work-list>li>a:hover .work-icon {
+    opacity: 1.0;
+}
+
+
+
+/*소식*/
+.news {
+    position: relative;
+    display: block;
+    padding: 50px 0;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ed1c24+50,58595b+50 */
+    background: rgb(237, 28, 36);
+    /* Old browsers */
+    background: -moz-linear-gradient(left, rgba(237, 28, 36, 1) 50%, rgba(88, 89, 91, 1) 50%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(237, 28, 36, 1) 50%, rgba(88, 89, 91, 1) 50%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(237, 28, 36, 1) 50%, rgba(88, 89, 91, 1) 50%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ed1c24', endColorstr='#58595b', GradientType=1);
+    /* IE6-9 */
+}
+
+.news .pagew {
+    position: relative;
+    display: block;
+}
+
+.news-left {
+    position: relative;
+    display: block;
+    float: left;
+}
+
+.news-right {
+    position: relative;
+    display: block;
+    float: right;
+}
+
+.notice-txt>li,
+.bodo-txt>li {
+    position: relative;
+    display: block;
+    padding: 25px 0;
+    width: 50rem;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.notice-txt>li:last-child,
+.bodo-txt>li:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+
+.notice-title,
+.bodo-title {
+    position: relative;
+    display: block;
+    color: #fff;
+    font-weight: 200;
+    font-size: 32px;
+    line-height: 0;
+    letter-spacing: 0;
+
+    padding-bottom: 45px;
+}
+
+.notice-txt-list,
+.bodo-txt-list {
+    position: relative;
+    display: block;
+    color: #fff;
+    font-weight: 200;
+    line-height: 23px;
+
+    width: 35rem;
+
+
+}
+
+
+.list-more {
+    position: absolute;
+    top: 22px;
+    right: 20px;
+    display: block;
+    padding-right: 27px;
+    width: 48px;
+    height: 23px;
+    background: url('../images/bg_icon.png') no-repeat;
+    background-position: 0px -49px;
+}
+
+.notice-txt > li:nth-child(3) > a > span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+
+
+/*문의*/
+
+.faq {
+    position: relative;
+    display: block;
+    background: #f8f8f8;
+
+    padding-top: 60px;
+    padding-bottom: 100px;
+}
+
+.faq .pagew {}
+
+.faq-left {
+    position: relative;
+    display: block;
+    background: #fff;
+    float: left;
+    padding: 52px 30px 50px 48px;
+    width: 598px;
+
+}
+
+.faq-left-txt {
+    position: relative;
+    display: block;
+    float: left;
+    margin-right: 43px;
+    overflow: hidden;
+}
+
+.faq-title {
+    position: relative;
+    display: block;
+    color: #000;
+    font-weight: 500;
+    font-size: 30px;
+    letter-spacing: normal;
+    margin-bottom: 23px;
+}
+
+.txt-desc {
+    position: relative;
+    display: block;
+    color: inherit;
+    font-weight: 200;
+    line-height: 1.5;
+}
+
+.faq-left-image {
+    position: relative;
+    display: block;
+    width: 178px;
+    height: 103px;
+    background: url(../images/faq_bg.png) no-repeat center;
+    float: right;
+}
+
+.faq-right {
+    position: relative;
+    display: block;
+    background: #fff;
+    float: left;
+    padding: 52px 50px 52px 55px;
+    width: 598px;
+    margin-left: 2px;
+
+}
+
+
+.faq-right-image {
+    position: absolute;
+    right: 52px;
+    top: 50px;
+    display: block;
+    width: 122px;
+    height: 122px;
+    background: url(../images/faq_bg2.png) no-repeat center;
+    float: right;
+}
+
+/*about*/
+.about {
+    position: relative;
+    display: block;
+    padding: 100px 0;
+
+    color: #ffffff;
+}
+
+.about .pagew {}
+
+.about-left {
+    position: relative;
+    display: block;
+    float: left;
+}
+
+.about-title {
+    position: relative;
+    display: block;
+    color: #111;
+    font-size: 44px;
+    font-weight: 600;
+    font-family: NotoSansBold;
+    letter-spacing: normal;
+    line-height: 1;
+
+    padding-bottom: 55px;
+
+}
+
+.about-subtitle {
+    position: relative;
+    display: block;
+    font-size: 21px;
+    font-weight: 500;
+    letter-spacing: normal;
+    color: #111;
+    letter-spacing: normal;
+    line-height: 1.5;
+
+    padding-left: 100px;
+
+    padding-bottom: 26px;
+
+}
+
+.about-subtitle::before {
+    content: '';
+    position: absolute;
+    top: 16px;
+    left: 0;
+    display: block;
+    width: 37px;
+    height: 5px;
+    background: #ed1c24;
+}
+
+.about-txt {
+    position: relative;
+    display: block;
+    font-weight: 200;
+    font-size: 15px;
+    letter-spacing: normal;
+    color: #444;
+    line-height: 1.4;
+
+    padding-left: 100px;
+}
+
+.about-right img {
+    position: relative;
+    display: block;
+    padding-left: 25px;
+    padding-bottom: 85px;
+}
+
+.about-bottom {
+    position: relative;
+    display: block;
+    margin-top: 85px;
+
+}
+
+.about-link {
+    position: relative;
+    display: inline-block;
+    font-size: 21px;
+    color: #111;
+    font-weight: 500;
+    line-height: 1;
+
+    background: url('../images/bg_icon2.png') no-repeat;
+    height: 160px;
+    white-space: nowrap;
+
+    padding-top: 135px;
+    text-align: center;
+
+}
+
+.about-link1 {
+    width: 100px;
+    background-position: 0px 0px;
+    margin-left: 210px;
+
+
+}
+
+.about-link2 {
+    width: 95px;
+    background-position: -120px -5px;
+    margin: 0px 210px;
+
+
+}
+
+.about-link3 {
+    width: 95px;
+    background-position: -235px -6px
+}
+
+/*footer*/
+.footer {
+    position: relative;
+    display: block;
+    background: #4e4e4e;
+    padding: 50px 0px;
+}
+
+.f-logo {
+    position: relative;
+    display: block;
+    float: left;
+    width: 255px;
+    height: 45px;
+}
+
+}
+
+.f-copy {
+    position: relative;
+    display: inline-block;
+    float: right;
+
+}
+
+.address,
+.copy {
+    position: relative;
+    display: block;
+    font-size: 13px;
+    font-weight: 200;
+    color: #c3c3c3;
+    line-height: 1.6;
+    font-style: normal;
+
+}
